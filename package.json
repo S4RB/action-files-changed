@@ -1,0 +1,10 @@
+{
+  "name": "action-files-changed",
+  "version": "0.1.0",
+  "description": "Listens for changes in a specified folder and returns a true/false condition",
+  "main": "dist/index.js",
+  "repository": "https://github.com/S4RB/action-files-changed",
+  "author": "S4RB",
+  "license": "MIT",
+  "private": false
+}
