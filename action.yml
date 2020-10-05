@@ -1,0 +1,19 @@
+name: Check for changes in Auth0 config
+description: Looks for changes in the specified settings folder, if settings changed then output true if not output false
+author: S4RB
+
+inputs:
+  directory:
+    description: Name of folder
+    required: true
+  token:
+    description: Github token to access Github API
+    required: true
+    default: ${{ github.token }}
+outputs:
+  hasChanged:
+    description: Whether files in settings folder have changed
+
+runs:
+  using: node12
+  main: dist/index.js

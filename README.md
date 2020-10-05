@@ -11,7 +11,7 @@ Setup the step in your workflow `.yml` file
   id: folderChanged
   uses: S4RB/action-files-changed@main
   with:
-  directory: <The directory you're looking at>
+  directory: <The directory pattern you're looking at>
 ```
 
 Run your workflow step conditionally based on the actions output

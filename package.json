@@ -1,0 +1,70 @@
+{
+  "name": "action-files-changed",
+  "version": "0.1.0",
+  "description": "Listens for changes in a specified folder and returns a true/false condition",
+  "main": "dist/index.js",
+  "repository": "https://github.com/S4RB/action-files-changed",
+  "author": "S4RB",
+  "license": "MIT",
+  "scripts": {
+    "format": "prettier . --write",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "build": "tsc",
+    "test": "jest",
+    "package": "ncc build"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.14",
+    "@types/minimatch": "^3.0.3",
+    "@typescript-eslint/eslint-plugin": "^4.3.0",
+    "@typescript-eslint/parser": "^4.3.0",
+    "@vercel/ncc": "^0.24.1",
+    "eslint": "^7.10.0",
+    "eslint-config-airbnb-typescript": "^11.0.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-import": "^2.22.1",
+    "husky": "^4.3.0",
+    "jest": "^26.5.0",
+    "lint-staged": "^10.4.0",
+    "prettier": "^2.1.2",
+    "ts-jest": "^26.4.1",
+    "typescript": "^4.0.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "./*.*": [
+      "prettier --write --ignore-unknown"
+    ],
+    "./src/**/*.{ts,js}": [
+      "eslint --fix",
+      "prettier --write",
+      "jest --findRelatedTests"
+    ]
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "ts",
+      "json"
+    ],
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "testMatch": [
+      "**/?(*.)+(spec|test).ts?(x)"
+    ],
+    "transform": {
+      "^.+\\.ts?$": "ts-jest"
+    }
+  },
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/exec": "^1.0.4",
+    "@actions/github": "^4.0.0",
+    "minimatch": "^3.0.4"
+  }
+}
