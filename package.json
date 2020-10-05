@@ -6,5 +6,20 @@
   "repository": "https://github.com/S4RB/action-files-changed",
   "author": "S4RB",
   "license": "MIT",
-  "private": false
+  "private": false,
+  "devDependencies": {
+    "husky": "^4.3.0",
+    "lint-staged": "^10.4.0",
+    "prettier": "^2.1.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*": [
+      "prettier --write --ignore-unknown"
+    ]
+  }
 }
