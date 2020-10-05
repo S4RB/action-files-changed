@@ -10,9 +10,11 @@
     "format": "prettier . --write",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "build": "tsc"
+    "build": "tsc",
+    "test": "jest"
   },
   "devDependencies": {
+    "@types/jest": "^26.0.14",
     "@typescript-eslint/eslint-plugin": "^4.3.0",
     "@typescript-eslint/parser": "^4.3.0",
     "eslint": "^7.10.0",
@@ -20,8 +22,10 @@
     "eslint-config-prettier": "^6.12.0",
     "eslint-plugin-import": "^2.22.1",
     "husky": "^4.3.0",
+    "jest": "^26.5.0",
     "lint-staged": "^10.4.0",
     "prettier": "^2.1.2",
+    "ts-jest": "^26.4.1",
     "typescript": "^4.0.3"
   },
   "husky": {
@@ -35,7 +39,23 @@
     ],
     "./src/**/*.{ts,js}": [
       "eslint --fix",
-      "prettier --write"
+      "prettier --write",
+      "jest"
     ]
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "ts",
+      "json"
+    ],
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "testMatch": [
+      "**/?(*.)+(spec|test).ts?(x)"
+    ],
+    "transform": {
+      "^.+\\.ts?$": "ts-jest"
+    }
   }
 }
