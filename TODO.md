@@ -1,0 +1,1 @@
+- [ ] Use Glob instead of regex
