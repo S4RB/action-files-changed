@@ -16,6 +16,7 @@
   },
   "devDependencies": {
     "@types/jest": "^26.0.14",
+    "@types/minimatch": "^3.0.3",
     "@typescript-eslint/eslint-plugin": "^4.3.0",
     "@typescript-eslint/parser": "^4.3.0",
     "@vercel/ncc": "^0.24.1",
@@ -63,6 +64,7 @@
   "dependencies": {
     "@actions/core": "^1.2.6",
     "@actions/exec": "^1.0.4",
-    "@actions/github": "^4.0.0"
+    "@actions/github": "^4.0.0",
+    "minimatch": "^3.0.4"
   }
 }
