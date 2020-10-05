@@ -14,8 +14,8 @@ const github_1 = require("@actions/github");
 exports.default = (base, head) => __awaiter(void 0, void 0, void 0, function* () {
     const token = core_1.getInput('token');
     const client = github_1.getOctokit(token);
-    const { repo: { owner, repo } } = github_1.context;
-    const { data: { files } } = yield client.repos.compareCommits({
+    const { repo: { owner, repo }, } = github_1.context;
+    const { data: { files }, } = yield client.repos.compareCommits({
         base,
         head,
         owner,

@@ -5,5 +5,5 @@ const fileMatchesFolder = (filename, directory) => !!filename.match(`(?<!/)${dir
 exports.default = (files, directory) => {
     const changedFiles = files.filter(filename => fileMatchesFolder(filename, directory));
     core_1.info(`Changed Files: ${changedFiles.join(' ')}`);
-    return (changedFiles.length > 0);
+    return changedFiles.length > 0;
 };
