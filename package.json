@@ -11,12 +11,14 @@
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "build": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "package": "ncc build"
   },
   "devDependencies": {
     "@types/jest": "^26.0.14",
     "@typescript-eslint/eslint-plugin": "^4.3.0",
     "@typescript-eslint/parser": "^4.3.0",
+    "@vercel/ncc": "^0.24.1",
     "eslint": "^7.10.0",
     "eslint-config-airbnb-typescript": "^11.0.0",
     "eslint-config-prettier": "^6.12.0",
@@ -34,13 +36,13 @@
     }
   },
   "lint-staged": {
-    "**/*": [
+    "./*.*": [
       "prettier --write --ignore-unknown"
     ],
     "./src/**/*.{ts,js}": [
       "eslint --fix",
       "prettier --write",
-      "jest"
+      "jest --findRelatedTests"
     ]
   },
   "jest": {
@@ -57,5 +59,10 @@
     "transform": {
       "^.+\\.ts?$": "ts-jest"
     }
+  },
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/exec": "^1.0.4",
+    "@actions/github": "^4.0.0"
   }
 }
