@@ -49,6 +49,7 @@ exports.default = (base, head) => __awaiter(void 0, void 0, void 0, function* ()
         owner,
         repo,
     });
+    core_1.info(`Files: ${files.join(' ')}`);
     return files.map(file => file.filename);
 });
 
@@ -91,6 +92,7 @@ function run() {
                     head = (_d = (_c = github_1.context.payload.pull_request) === null || _c === void 0 ? void 0 : _c.head) === null || _d === void 0 ? void 0 : _d.sha;
                     break;
                 case 'push':
+                    core_1.info('On push');
                     base = github_1.context.payload.before;
                     head = github_1.context.payload.after;
                     break;
@@ -102,6 +104,8 @@ function run() {
                 base = '';
                 head = '';
             }
+            core_1.info(`base: ${base}`);
+            core_1.info(`head: ${head}`);
             const files = yield getFiles_1.default(base, head);
             core_1.setOutput('hasChanged', directoryHasChanges_1.default(files, directory).toString());
         }

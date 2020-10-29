@@ -21,5 +21,6 @@ exports.default = (base, head) => __awaiter(void 0, void 0, void 0, function* ()
         owner,
         repo,
     });
+    core_1.info(`Files: ${files.join(' ')}`);
     return files.map(file => file.filename);
 });
