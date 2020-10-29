@@ -1,4 +1,4 @@
-import { getInput, setOutput, setFailed } from '@actions/core';
+import { getInput, setOutput, setFailed, info } from '@actions/core';
 import { context } from '@actions/github';
 
 import getFiles from './getFiles';
@@ -18,6 +18,7 @@ async function run(): Promise<void> {
         head = context.payload.pull_request?.head?.sha;
         break;
       case 'push':
+        info('On push');
         base = context.payload.before;
         head = context.payload.after;
         break;
@@ -31,6 +32,9 @@ async function run(): Promise<void> {
       base = '';
       head = '';
     }
+
+    info(`base: ${base}`);
+    info(`head: ${head}`);
 
     const files = await getFiles(base, head);
 
